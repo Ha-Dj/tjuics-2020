@@ -23,6 +23,6 @@ make_jcc_helper(np)
 make_jcc_helper(l)
 make_jcc_helper(ge)*/
 make_jcc_helper(le)
-//make_jcc_helper(g)
+make_jcc_helper(g)
 
 #include "cpu/exec/template-end.h"
