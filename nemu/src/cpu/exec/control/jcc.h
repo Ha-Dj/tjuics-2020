@@ -10,7 +10,7 @@ make_helper(jne_b);
 make_helper(jbe_b);
 make_helper(ja_b);
 make_helper(js_b);
-//make_helper(jns_b);
+make_helper(jns_b);
 //make_helper(jp_b);
 //make_helper(jnp_b);
 make_helper(jl_b);

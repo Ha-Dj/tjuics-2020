@@ -41,11 +41,11 @@ static inline bool check_cc_s() {
 	return cpu.eflags.SF;
 }
 
-/*static inline bool check_cc_ns() {
+static inline bool check_cc_ns() {
 	return !cpu.eflags.SF;
 }
 
-static inline bool check_cc_p() {
+/*static inline bool check_cc_p() {
 	return cpu.eflags.PF;
 }
 
