@@ -27,13 +27,13 @@ static inline bool check_cc_e() {
 
 /*static inline bool check_cc_ne() {
 	return !cpu.eflags.ZF;
-}
+}*/
 
 static inline bool check_cc_be() {
 	return cpu.eflags.CF | cpu.eflags.ZF;
 }
 
-static inline bool check_cc_a() {
+/*static inline bool check_cc_a() {
 	return !(cpu.eflags.CF | cpu.eflags.ZF);
 }
 
