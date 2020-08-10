@@ -3,6 +3,6 @@
 
 make_helper(scas_b);
 
-//make_helper(scas_v);
+make_helper(scas_v);
 
 #endif

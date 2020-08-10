@@ -3,6 +3,6 @@
 
 make_helper(stos_b);
 
-//make_helper(stos_v);
+make_helper(stos_v);
 
 #endif
