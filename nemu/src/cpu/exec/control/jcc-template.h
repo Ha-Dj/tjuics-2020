@@ -19,9 +19,9 @@ make_jcc_helper(be)
 make_jcc_helper(s)
 make_jcc_helper(ns)
 make_jcc_helper(p)
-make_jcc_helper(np)
+make_jcc_helper(np)*/
 make_jcc_helper(l)
-make_jcc_helper(ge)*/
+//make_jcc_helper(ge)
 make_jcc_helper(le)
 make_jcc_helper(g)
 
