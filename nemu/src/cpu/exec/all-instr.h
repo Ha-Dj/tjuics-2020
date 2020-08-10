@@ -31,6 +31,7 @@
 #include "control/call.h"
 #include "control/ret.h"
 #include "control/jcc.h"
+#include "control/jmp.h"
 
 #include "string/rep.h"
 
