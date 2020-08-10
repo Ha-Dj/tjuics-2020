@@ -57,7 +57,7 @@ make_helper(repnz) {
 				|| ops_decoded.opcode == 0xaf	// scasw
 			  );
 
-		if(cpu.eflags.ZF) {
+		if(!cpu.eflags.ZF) {
 			break;
 		}
 
