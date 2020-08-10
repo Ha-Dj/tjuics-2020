@@ -31,9 +31,6 @@ make_helper(rep) {
 			   ) && !cpu.eflags.ZF) {
 				break;
 			}*/
-                        if(cpu.eflags.ZF){
-                            break;
-                        }
 
 		}
 		len = 1;
