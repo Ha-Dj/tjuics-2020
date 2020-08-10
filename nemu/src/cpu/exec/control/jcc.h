@@ -29,9 +29,9 @@ make_helper(jbe_l);
 make_helper(js_l);
 make_helper(jns_l);
 make_helper(jp_l);
-make_helper(jnp_l);
+make_helper(jnp_l);*/
 make_helper(jl_l);
-make_helper(jge_l);*/
+//make_helper(jge_l);
 make_helper(jle_l);
 //make_helper(jg_l);
 
