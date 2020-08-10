@@ -4,9 +4,9 @@
 #include "jmp-template.h"
 #undef DATA_BYTE
 
-/*#define DATA_BYTE 4
+#define DATA_BYTE 4
 #include "jmp-template.h"
-#undef DATA_BYTE*/
+#undef DATA_BYTE
 
 /*void load_sreg(uint8_t, uint16_t);
 
