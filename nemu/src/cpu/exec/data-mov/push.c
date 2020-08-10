@@ -16,7 +16,7 @@
 
 make_helper_v(push_r)
 //make_helper_v(push_i)
-//make_helper_v(push_rm)
+make_helper_v(push_rm)
 
 /*make_helper(pushal) {
 	swaddr_write(cpu.esp -  4, 4, cpu.eax, R_SS);
