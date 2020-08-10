@@ -37,11 +37,11 @@ static inline bool check_cc_a() {
 	return !(cpu.eflags.CF | cpu.eflags.ZF);
 }
 
-/*static inline bool check_cc_s() {
+static inline bool check_cc_s() {
 	return cpu.eflags.SF;
 }
 
-static inline bool check_cc_ns() {
+/*static inline bool check_cc_ns() {
 	return !cpu.eflags.SF;
 }
 
