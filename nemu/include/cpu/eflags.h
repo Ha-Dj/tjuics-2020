@@ -57,9 +57,9 @@ static inline bool check_cc_l() {
 	return cpu.eflags.SF ^ cpu.eflags.OF;
 }
 
-/*static inline bool check_cc_ge() {
+static inline bool check_cc_ge() {
 	return !(cpu.eflags.SF ^ cpu.eflags.OF);
-}*/
+}
 
 static inline bool check_cc_le() {
 	return (cpu.eflags.SF ^ cpu.eflags.OF) | cpu.eflags.ZF;
