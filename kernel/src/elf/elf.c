@@ -18,7 +18,7 @@ uint32_t get_ucr3();
 
 uint32_t loader() {
 	Elf32_Ehdr *elf;
-	Elf32_Phdr *ph = NULL;
+	Elf32_Phdr *ph = NULL, *eph;
 
 	uint8_t buf[4096];
 
