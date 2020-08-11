@@ -11,13 +11,13 @@ void update_eflags_pf_zf_sf(uint32_t);
 
 static inline bool check_cc_no() {
 	return !cpu.eflags.OF;
-}
+}*/
 
 static inline bool check_cc_b() {
 	return cpu.eflags.CF;
 }
 
-static inline bool check_cc_ae() {
+/*static inline bool check_cc_ae() {
 	return !cpu.eflags.CF;
 }*/
 
