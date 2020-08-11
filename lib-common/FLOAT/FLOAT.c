@@ -10,11 +10,6 @@ typedef union {
 	uint32_t val;
 } Float;
 
-FLOAT F_mul_F(FLOAT a, FLOAT b) {
-	nemu_assert(0);
-	return 0;
-}
-
 #define __sign(x) ((x) & 0x80000000)
 #define __scale(x) (__sign(x) ? -(x) : (x))
 
@@ -45,8 +40,6 @@ FLOAT F_div_F(FLOAT a, FLOAT b) {
         FLOAT q, r;
 	asm volatile("idiv %2" : "=a"(q), "=d"(r) : "r"(b), "a"(a << 16), "d"(a >> 16));
 	return q;
-	//nemu_assert(0);
-	//return 0;
 }
 
 FLOAT f2F(float a) {
@@ -73,14 +66,10 @@ FLOAT f2F(float a) {
 		m >>= shift;
 	}
 	return (__sign(f.val) ? -m : m);
-        //nemu_assert(0);
-	//return 0;
 }
 
 FLOAT Fabs(FLOAT a) {
         return __scale(a);
-	//nemu_assert(0);
-	//return 0;
 }
 
 /* Functions below are already implemented */
