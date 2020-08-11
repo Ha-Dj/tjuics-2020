@@ -109,6 +109,7 @@ static int cmd_w(char *args) {
 	return 0;
 }
 
+/* Add delete watchpoint */
 static int cmd_d(char *args) {
 	int NO;
 	sscanf(args, "%d", &NO);
@@ -119,7 +120,7 @@ static int cmd_d(char *args) {
 	return 0;
 }
 
-/*Add print stack-frame chain*/
+/* Add display backtrace */
 static int cmd_bt(char *args) {
 	const char* find_fun_name(uint32_t eip);
 	struct {
