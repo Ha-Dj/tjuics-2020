@@ -93,7 +93,7 @@ static int cmd_p(char *args) {
 
 	if(args) {
 		uint32_t r = expr(args, &success);
-		if(success) { printf("%x\n", r); }
+		if(success) { printf("0x%08x(%d)\n", r, r); }
 		else { printf("Bad expression\n"); }
 	}
 	return 0;
