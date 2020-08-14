@@ -8,10 +8,10 @@
 		return len + 1; \
 	}
 
-/*make_jcc_helper(o)
-make_jcc_helper(no)
+//make_jcc_helper(o)
+//make_jcc_helper(no)
 make_jcc_helper(b)
-make_jcc_helper(ae)*/
+//make_jcc_helper(ae)
 make_jcc_helper(e)
 make_jcc_helper(ne)
 make_jcc_helper(be)

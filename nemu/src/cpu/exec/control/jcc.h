@@ -1,10 +1,10 @@
 #ifndef __JCC_H__
 #define __JCC_H__
 
-/*make_helper(jo_b);
-make_helper(jno_b);
+//make_helper(jo_b);
+//make_helper(jno_b);
 make_helper(jb_b);
-make_helper(jae_b);*/
+//make_helper(jae_b);
 make_helper(je_b);
 make_helper(jne_b);
 make_helper(jbe_b);

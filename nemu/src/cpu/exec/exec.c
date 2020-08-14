@@ -60,7 +60,7 @@ make_group(group2_cl_b,
 /* 0xd3 */
 make_group(group2_cl_v,
 	inv, inv, inv, inv, 
-	shl_rm_cl_v, inv, inv, inv)
+	shl_rm_cl_v, shr_rm_cl_v, inv, inv)
 
 /* 0xf6 */
 make_group(group3_b,
@@ -79,7 +79,7 @@ make_group(group4,
 
 /* 0xff */
 make_group(group5,
-	inv, dec_rm_v, inv, inv, 
+	inv, dec_rm_v, call_rm, inv, 
 	jmp_rm_l, inv, push_rm_v, inv)
 
 make_group(group6,
@@ -97,19 +97,19 @@ helper_fun opcode_table [256] = {
 /* 0x00 */	inv, add_r2rm_v, inv, add_rm2r_v,
 /* 0x04 */	inv, add_i2a_v, inv, inv,
 /* 0x08 */	inv, or_r2rm_v, or_rm2r_b, inv,
-/* 0x0c */	or_i2a_b, inv, inv, _2byte_esc,
+/* 0x0c */	or_i2a_b, or_i2a_v, inv, _2byte_esc,
 /* 0x10 */	inv, adc_r2rm_v, inv, inv,
 /* 0x14 */	inv, inv, inv, inv,
 /* 0x18 */	inv, sbb_r2rm_v, inv, inv,
 /* 0x1c */	inv, inv, inv, inv,
 /* 0x20 */	inv, and_r2rm_v, and_rm2r_b, inv,
-/* 0x24 */	inv, inv, inv, inv,
+/* 0x24 */	inv, and_i2a_v, inv, inv,
 /* 0x28 */	inv, sub_r2rm_v, inv, sub_rm2r_v,
 /* 0x2c */	inv, inv, inv, inv,
 /* 0x30 */	inv, xor_r2rm_v, inv, inv,
 /* 0x34 */	inv, inv, inv, inv,
 /* 0x38 */	cmp_r2rm_b, cmp_r2rm_v, cmp_rm2r_b, cmp_rm2r_v,
-/* 0x3c */	cmp_i2a_b, inv, inv, inv,
+/* 0x3c */	cmp_i2a_b, cmp_i2a_v, inv, inv,
 /* 0x40 */	inc_r_v, inc_r_v, inc_r_v, inc_r_v,
 /* 0x44 */	inv, inc_r_v, inc_r_v, inc_r_v,
 /* 0x48 */	dec_r_v, dec_r_v, dec_r_v, dec_r_v,
@@ -122,7 +122,7 @@ helper_fun opcode_table [256] = {
 /* 0x64 */	inv, inv, operand_size, inv,
 /* 0x68 */	inv, imul_i_rm2r_v, push_si_b, imul_si_rm2r_v,
 /* 0x6c */	inv, inv, inv, inv,
-/* 0x70 */	inv, inv, inv, inv,
+/* 0x70 */	inv, inv, jb_b, inv,
 /* 0x74 */	je_b, jne_b, jbe_b, ja_b,
 /* 0x78 */	js_b, jns_b, inv, inv,
 /* 0x7c */	jl_b, jge_b, jle_b, jg_b,
@@ -204,7 +204,7 @@ helper_fun _2byte_opcode_table [256] = {
 /* 0xa0 */	inv, inv, inv, inv, 
 /* 0xa4 */	inv, inv, inv, inv,
 /* 0xa8 */	inv, inv, inv, inv,
-/* 0xac */	inv, inv, inv, imul_rm2r_v,
+/* 0xac */	shrdi_v, inv, inv, imul_rm2r_v,
 /* 0xb0 */	inv, inv, inv, inv, 
 /* 0xb4 */	inv, inv, movzb_v, movzw_l, 
 /* 0xb8 */	inv, inv, inv, inv,
