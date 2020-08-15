@@ -10,6 +10,7 @@ void load_elf_tables(int, char *[]);
 void init_regex();
 void init_wp_pool();
 void init_ddr3();
+void make_all_cache();
 
 FILE *log_fp = NULL;
 
@@ -37,6 +38,8 @@ void init_monitor(int argc, char *argv[]) {
 
 	/* Initialize the watchpoint pool. */
 	init_wp_pool();
+
+	make_all_cache();
 
 	/* Display welcome message. */
 	welcome();
