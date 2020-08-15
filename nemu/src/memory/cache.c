@@ -200,12 +200,6 @@ static void make_cache(Cache *c,
 	c->associativity = exp2(associativity_width);
 	c->nr_set = exp2(total_size_width - line_size_width - associativity_width);
 
-	/*
-	c->tag_mask = tag_mask;
-	c->line_mask = line_mask;
-	c->set_mask = set_mask;
-	c->offset_mask = offset_mask;
-	*/
 	c->line_mask = (c->nr_line - 1) << line_size_width;
 	c->set_mask = mask_with_len(c->set_size_width) << line_size_width;
 	c->offset_mask = mask_with_len(line_size_width);
