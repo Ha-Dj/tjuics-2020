@@ -20,7 +20,7 @@ make_helper(lgdt) {
 
 	print_asm("lidt %s", op_src->str);
 	return len + 1;
-}
+}*/
 
 make_helper(mov_r2cr) {
 	int len = decode_r2rm_l(eip + 1);
@@ -38,10 +38,10 @@ make_helper(mov_r2cr) {
 			}
 		}
 	}
-	else if(op_src->reg == 3) {
+	/*else if(op_src->reg == 3) {
 		cpu.cr3.val = reg_l(op_dest->reg);
 		init_all_tlb();
-	}
+	}*/
 	else { assert(0); }
 
 	print_asm("movl %%%s,%%cr%d", regsl[op_dest->reg], op_src->reg);
@@ -52,14 +52,14 @@ make_helper(mov_cr2r) {
 	int len = decode_r2rm_l(eip + 1);
 	assert(op_dest->type == OP_TYPE_REG);
 	if(op_dest->reg == 0) { reg_l(op_src->reg) = cpu.cr0.val; }
-	else if(op_dest->reg == 3) { reg_l(op_src->reg) = cpu.cr3.val; }
+	//else if(op_dest->reg == 3) { reg_l(op_src->reg) = cpu.cr3.val; }
 	else { assert(0); }
 
 	print_asm("movl %%cr%d,%%%s", op_src->reg, regsl[op_dest->reg]);
 	return len + 1;
 }
 
-make_helper(int_) {
+/*make_helper(int_) {
 	uint8_t NO = instr_fetch(eip + 1, 1);
 	Log_write("%8x:   cd %02x %*.sint $%#x\n", cpu.eip, NO, 50 - (12 + 3 * 2), "", NO);
 	cpu.eip += 2;
