@@ -4,7 +4,7 @@
 
 uint32_t lnaddr_read(lnaddr_t, size_t);
 
-/*void load_sreg(uint8_t sreg, uint16_t sel) {
+void load_sreg(uint8_t sreg, uint16_t sel) {
 	assert(sreg < 6);
 	cpu.sreg[sreg].val = sel;
 	assert(cpu.sreg[sreg].ti == 0);		// only GDT is simulated
@@ -24,7 +24,7 @@ uint32_t lnaddr_read(lnaddr_t, size_t);
 	cpu.sreg[sreg].type = s->type | (s->segment_type << 4);
 	cpu.sreg[sreg].privilege_level = s->privilege_level;
 	cpu.sreg[sreg].soft_use = s->soft_use;
-}*/
+}
 
 lnaddr_t segment_translate(swaddr_t addr, uint8_t sreg) {
 #ifdef DEBUG
