@@ -27,7 +27,6 @@ void hwaddr_write(hwaddr_t addr, size_t len, uint32_t data) {
 
 uint32_t lnaddr_read(lnaddr_t addr, size_t len) {
 	
-        printf("%x, %d\n", addr, len);
 	uint32_t data;
 	if(cpu.cr0.paging) {
 		hwaddr_t hwaddr = page_translate(addr);
@@ -44,6 +43,8 @@ uint32_t lnaddr_read(lnaddr_t addr, size_t len) {
 		}
 	}
 	else {
+		
+        printf("%x, %d\n", addr, len);
 		data = hwaddr_read(addr, len);
 	}
 
