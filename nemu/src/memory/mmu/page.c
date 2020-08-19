@@ -36,7 +36,6 @@ hwaddr_t page_walk(lnaddr_t lnaddr) {
 	return pte.val;
 }
 
-hwaddr_t page_translate(lnaddr_t addr) {
-	
+hwaddr_t page_translate(lnaddr_t addr) {	
 	return tlb_read(addr) | (addr & PAGE_MASK);
 }
