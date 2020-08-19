@@ -44,18 +44,18 @@ void cpu_exec(volatile uint32_t n) {
 	nemu_state = RUNNING;
 
 #ifdef DEBUG
-	//volatile uint32_t n_temp = n;
+	volatile uint32_t n_temp = n;
 #endif
 
 	setjmp(jbuf);
 
 	for(; n > 0; n --) {
 #ifdef DEBUG
-		//swaddr_t eip_temp = cpu.eip;
-		//if((n & 0xffff) == 0) {
+		swaddr_t eip_temp = cpu.eip;
+		if((n & 0xffff) == 0) {
 			/* Output some dots while executing the program. */
-		//	fputc('.', stderr);
-		//}
+			fputc('.', stderr);
+		}
 #endif
 
 		/* Execute one instruction, including instruction fetch,
@@ -64,7 +64,7 @@ void cpu_exec(volatile uint32_t n) {
 
 		cpu.eip += instr_len;
 
-/*#ifdef DEBUG
+#ifdef DEBUG
 		printf("eip success\n");
 		print_bin_instr(eip_temp, instr_len);
 		strcat(asm_buf, assembly);
@@ -72,7 +72,7 @@ void cpu_exec(volatile uint32_t n) {
 		if(n_temp < MAX_INSTR_TO_PRINT) {
 			printf("%s\n", asm_buf);
 		}
-#endif*/
+#endif
 
 		/* TODO: check watchpoints here. */
                 WP *wp = scan_watchpoint();
