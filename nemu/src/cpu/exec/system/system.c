@@ -29,10 +29,8 @@ make_helper(mov_r2cr) {
 		}
 	}
 	else if(op_src->reg == 3) {
-                printf("hello\n");
 		cpu.cr3.val = reg_l(op_dest->reg);
-                printf("hello\n");
-		init_all_tlb();
+		//init_all_tlb();
 	}
 	else { assert(0); }
 
