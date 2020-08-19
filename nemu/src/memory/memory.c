@@ -29,6 +29,8 @@ uint32_t lnaddr_read(lnaddr_t addr, size_t len) {
 	
 	uint32_t data;
 	if(cpu.cr0.paging) {
+		
+        printf("%x, %d\n", addr, len);
 		hwaddr_t hwaddr = page_translate(addr);
 		uint32_t remain_byte = PAGE_SIZE - (addr & PAGE_MASK);
 		if(remain_byte < len) {
@@ -44,7 +46,6 @@ uint32_t lnaddr_read(lnaddr_t addr, size_t len) {
 	}
 	else {
 		
-        printf("%x, %d\n", addr, len);
 		data = hwaddr_read(addr, len);
 	}
 
