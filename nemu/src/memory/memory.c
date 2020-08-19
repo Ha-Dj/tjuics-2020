@@ -74,6 +74,7 @@ uint32_t swaddr_read(swaddr_t addr, size_t len, uint8_t sreg) {
 #ifdef DEBUG
 	assert(len == 1 || len == 2 || len == 4);
 #endif
+        printf("%x, %d\n", addr, len);
 	lnaddr_t lnaddr = segment_translate(addr, sreg);
 	return lnaddr_read(lnaddr, len);
 }
