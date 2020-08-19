@@ -24,7 +24,6 @@ void print_bin_instr(swaddr_t eip, int len) {
 	int i;
 	int l = sprintf(asm_buf, "%8x:   ", eip);
 	for(i = 0; i < len; i ++) {
-		//printf("%x, %d\n", eip, i);
 		l += sprintf(asm_buf + l, "%02x ", instr_fetch(eip + i, 1));
 	}
 	sprintf(asm_buf + l, "%*.s", 50 - (12 + 3 * len), "");
@@ -67,7 +66,6 @@ void cpu_exec(volatile uint32_t n) {
 		cpu.eip += instr_len;
 
 #ifdef DEBUG
-		printf("%x, %x\n", cpu.eip, cpu.esp);
 		print_bin_instr(eip_temp, instr_len);
 		strcat(asm_buf, assembly);
 		Log_write("%s\n", asm_buf);
