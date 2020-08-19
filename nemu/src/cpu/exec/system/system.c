@@ -1,6 +1,6 @@
 #include "cpu/exec/helper.h"
 
-//void init_all_tlb();
+void init_all_tlb();
 
 make_helper(lgdt) {
 	int len = decode_rm_l(eip + 1);
@@ -28,10 +28,10 @@ make_helper(mov_r2cr) {
 			}
 		}
 	}
-	/*else if(op_src->reg == 3) {
+	else if(op_src->reg == 3) {
 		cpu.cr3.val = reg_l(op_dest->reg);
 		init_all_tlb();
-	}*/
+	}
 	else { assert(0); }
 
 	print_asm("movl %%%s,%%cr%d", regsl[op_dest->reg], op_src->reg);
