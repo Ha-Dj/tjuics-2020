@@ -29,10 +29,9 @@ uint32_t lnaddr_read(lnaddr_t addr, size_t len) {
 	
 	uint32_t data;
 	if(cpu.cr0.paging) {
-		
+	        	
+	        printf("%x\n", addr);	
 		hwaddr_t hwaddr = page_translate(addr);
-		
-        printf("%x, %d\n", addr, len);
 		uint32_t remain_byte = PAGE_SIZE - (addr & PAGE_MASK);
 		if(remain_byte < len) {
 			/* data cross the page boundary */
