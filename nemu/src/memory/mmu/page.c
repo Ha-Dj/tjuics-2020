@@ -37,5 +37,7 @@ hwaddr_t page_walk(lnaddr_t lnaddr) {
 }
 
 hwaddr_t page_translate(lnaddr_t addr) {
+	
+	        printf("%x\n", addr);	
 	return tlb_read(addr) | (addr & PAGE_MASK);
 }
