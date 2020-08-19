@@ -53,6 +53,7 @@ static uint32_t tlb_fetch(TLB *t, lnaddr_t lnaddr) {
 	/* TLB miss */
 
 #else
+	printf("%x\n", lnaddr);
 	idx = 0;
 #endif
 	/* TLB fill */
