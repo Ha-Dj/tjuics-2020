@@ -23,8 +23,8 @@ jmp_buf jbuf;
 void print_bin_instr(swaddr_t eip, int len) {
 	int i;
 	int l = sprintf(asm_buf, "%8x:   ", eip);
-        printf("%x, %x, %d\n", eip, cpu.esp, len);
 	for(i = 0; i < len; i ++) {
+		printf("%x, %d\n", eip, i);
 		l += sprintf(asm_buf + l, "%02x ", instr_fetch(eip + i, 1));
 	}
 	sprintf(asm_buf + l, "%*.s", 50 - (12 + 3 * len), "");
