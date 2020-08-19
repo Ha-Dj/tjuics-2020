@@ -60,7 +60,7 @@ static uint32_t tlb_fetch(TLB *t, lnaddr_t lnaddr) {
         //int i = (lnaddr & ~PAGE_MASK) | 0x1;
         printf("+++%x\n", lnaddr); 
 	t->pte[idx] = page_walk(lnaddr);
-       //printf("****%x\n", lnaddr);
+        printf("****%x\n", lnaddr);
 	return idx;
 }
 
