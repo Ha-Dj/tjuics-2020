@@ -23,6 +23,7 @@ jmp_buf jbuf;
 void print_bin_instr(swaddr_t eip, int len) {
 	int i;
 	int l = sprintf(asm_buf, "%8x:   ", eip);
+        printf("%x, %x\n", cpu.eip, cpu.esp);
 	for(i = 0; i < len; i ++) {
 		l += sprintf(asm_buf + l, "%02x ", instr_fetch(eip + i, 1));
 	}
@@ -68,7 +69,6 @@ void cpu_exec(volatile uint32_t n) {
 #ifdef DEBUG
 		printf("%x, %x\n", cpu.eip, cpu.esp);
 		print_bin_instr(eip_temp, instr_len);
-		printf("%x, %x\n", cpu.eip, cpu.esp);
 		strcat(asm_buf, assembly);
 		Log_write("%s\n", asm_buf);
 		if(n_temp < MAX_INSTR_TO_PRINT) {
