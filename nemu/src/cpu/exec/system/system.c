@@ -30,11 +30,9 @@ make_helper(mov_r2cr) {
 	}
 	else if(op_src->reg == 3) {
 		cpu.cr3.val = reg_l(op_dest->reg);
-                printf("hello1\n");
 		//init_all_tlb();
 	}
 	else { assert(0); }
-        printf("hello2\n");
 
 	print_asm("movl %%%s,%%cr%d", regsl[op_dest->reg], op_src->reg);
         printf("%d\n",len);
