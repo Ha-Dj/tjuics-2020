@@ -37,6 +37,7 @@ make_helper(mov_r2cr) {
         printf("hello\n");
 
 	print_asm("movl %%%s,%%cr%d", regsl[op_dest->reg], op_src->reg);
+        printf("hello3\n");
 	return len + 1;
 }
 
