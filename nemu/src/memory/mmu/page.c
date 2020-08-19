@@ -20,7 +20,6 @@ hwaddr_t page_walk(lnaddr_t lnaddr) {
 
 	PDE pde;
 	pde.val	= hwaddr_read(pdir_base + addr->pdir_idx * 4, 4);
-        printf("+++%x\n", lnaddr);
 	if(!pde.present) {
 		Log("eip = %x, lnaddr = %x, pdir_base = %x, pde = %x", cpu.eip, lnaddr, pdir_base, pde.val);
 		assert(0);
@@ -29,6 +28,7 @@ hwaddr_t page_walk(lnaddr_t lnaddr) {
 	hwaddr_t pt_base = pde.val & ~PAGE_MASK;
 	PTE pte;
 	pte.val = hwaddr_read(pt_base + addr->pt_idx * 4, 4);
+        printf("+++%x\n", lnaddr);
 	if(!pte.present) {
 		Log("eip = %x, lnaddr = %x, pt_base = %x, pte = %x", cpu.eip, lnaddr, pt_base, pte.val);
 		assert(0);
