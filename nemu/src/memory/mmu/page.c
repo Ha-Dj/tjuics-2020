@@ -32,7 +32,6 @@ hwaddr_t page_walk(lnaddr_t lnaddr) {
 		Log("eip = %x, lnaddr = %x, pt_base = %x, pte = %x", cpu.eip, lnaddr, pt_base, pte.val);
 		assert(0);
 	}
-        printf("+++%x\n", lnaddr);
 	return pte.val;
 }
 
