@@ -20,7 +20,7 @@ hwaddr_t page_walk(lnaddr_t lnaddr) {
 
 	PDE pde;
         //if("addr->pdir_idx < 100")
-          //printf("%x, %x\n",addr->pdir_idx, cpu.eip);
+        printf("%x, %x, %x\n",pdir_base, addr->pdir_idx, cpu.eip);
 	pde.val	= hwaddr_read(pdir_base + addr->pdir_idx * 4, 4);
 	if(!pde.present) {
 		Log("eip = %x, lnaddr = %x, pdir_base = %x, pde = %x", cpu.eip, lnaddr, pdir_base, pde.val);
