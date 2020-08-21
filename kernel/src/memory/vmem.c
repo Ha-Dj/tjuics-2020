@@ -14,7 +14,31 @@ void create_video_mapping() {
 	 * [0xa0000, 0xa0000 + SCR_SIZE) for user program. You may define
 	 * some page tables to create this mapping.
 	 */
-	panic("please implement me");
+	//panic("please implement me");
+	PDE *updir = get_updir();
+
+	uint32_t va = VMEM_ADDR;
+	int len = SCR_SIZE;
+	int pt_idx = 0;
+
+	for(; len > 0; len -= PAGE_SIZE, va += PAGE_SIZE) {
+		int pde_idx = va / PT_SIZE;
+		PTE *pt;
+
+		if(updir[pde_idx].present == 0) {
+			pt = vmem_ptable[pt_idx ++];
+			updir[pde_idx].val = make_pde(va_to_pa(pt));
+			memset(pt, 0, NR_PTE * sizeof(NR_PTE));
+		}
+		else {
+			pt = (void *)pa_to_va(updir[pde_idx].val & ~0xfff);
+		}
+
+		int pte_idx = (va % PT_SIZE) / PAGE_SIZE;
+		if(pt[pte_idx].present == 0) {
+			pt[pte_idx].val = make_pte(va);
+		}
+	}
 }
 
 void video_mapping_write_test() {
