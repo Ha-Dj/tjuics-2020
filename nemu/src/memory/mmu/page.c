@@ -2,6 +2,8 @@
 
 #include "nemu.h"
 
+uint32_t pw_i;
+
 uint32_t hwaddr_read(hwaddr_t, size_t);
 uint32_t tlb_read(lnaddr_t);
 
@@ -20,7 +22,10 @@ hwaddr_t page_walk(lnaddr_t lnaddr) {
 
 	PDE pde;
         //if("addr->pdir_idx < 100")
-        printf("%x, %x, %x\n",pdir_base, addr->pdir_idx, cpu.eip);
+        if(pw_i<100){
+          printf("%x, %x, %x\n",pdir_base, addr->pdir_idx, cpu.eip);
+          pw_i++;
+        }
 	pde.val	= hwaddr_read(pdir_base + addr->pdir_idx * 4, 4);
 	if(!pde.present) {
 		Log("eip = %x, lnaddr = %x, pdir_base = %x, pde = %x", cpu.eip, lnaddr, pdir_base, pde.val);
