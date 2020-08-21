@@ -4,6 +4,8 @@
 
 #define VMEM_ADDR 0xa0000
 #define SCR_SIZE (320 * 200)
+#define NR_PT ((SCR_SIZE + PT_SIZE - 1) / PT_SIZE)  // number of page tables to cover the vmem
+static PTE vmem_ptable[NR_PT][NR_PTE] align_to_page;
 
 /* Use the function to get the start address of user page directory. */
 PDE* get_updir();
