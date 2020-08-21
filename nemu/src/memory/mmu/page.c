@@ -28,7 +28,7 @@ hwaddr_t page_walk(lnaddr_t lnaddr) {
         }
 	pde.val	= hwaddr_read(pdir_base + addr->pdir_idx * 4, 4);
 	if(!pde.present) {
-		Log("eip = %x, lnaddr = %x, pdir_base = %x, pde = %x", cpu.eip, lnaddr, pdir_base, pde.val);
+		Log("eip = %x, lnaddr = %x, pdir_base = %x, pde = %x, %x", cpu.eip, lnaddr, pdir_base, pde.val, addr->pdir_idx);
 		assert(0);
 	}
 
