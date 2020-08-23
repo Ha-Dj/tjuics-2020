@@ -13,15 +13,6 @@ make_helper(lgdt) {
 	return len + 1;
 }
 
-/*make_helper(lidt) {
-	int len = decode_rm_l(eip + 1);
-	cpu.idtr.limit = lnaddr_read(op_src->addr, 2);
-	cpu.idtr.base = lnaddr_read(op_src->addr + 2, 4);
-
-	print_asm("lidt %s", op_src->str);
-	return len + 1;
-}*/
-
 make_helper(mov_r2cr) {
 	int len = decode_r2rm_l(eip + 1);
 	assert(op_dest->type == OP_TYPE_REG);
@@ -59,44 +50,3 @@ make_helper(mov_cr2r) {
 	return len + 1;
 }
 
-/*make_helper(int_) {
-	uint8_t NO = instr_fetch(eip + 1, 1);
-	Log_write("%8x:   cd %02x %*.sint $%#x\n", cpu.eip, NO, 50 - (12 + 3 * 2), "", NO);
-	cpu.eip += 2;
-	raise_intr(NO, 0);
-
-	return 2;
-}
-
-make_helper(cli) {
-	cpu.eflags.IF = 0;
-	print_asm("cli");
-	return 1;
-}
-
-make_helper(sti) {
-	cpu.eflags.IF = 1;
-	print_asm("sti");
-	return 1;
-}
-
-make_helper(iret) {
-	cpu.eip = swaddr_read(cpu.esp, 4, R_SS) - 1;
-	load_sreg(R_CS, swaddr_read(cpu.esp + 4, 4, R_SS));
-	cpu.eflags.val = swaddr_read(cpu.esp + 8, 4, R_SS);
-	cpu.esp += 12;
-
-	print_asm("iret");
-	return 1;
-}
-
-make_helper(hlt) {
-	if(cpu.eflags.IF) {
-		while(cpu.INTR == 0) ;
-	}
-	else {
-		Assert(0, "hlt with cli!");
-	}
-	print_asm("hlt");
-	return 1;
-}*/
