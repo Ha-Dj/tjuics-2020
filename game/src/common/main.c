@@ -17,7 +17,7 @@ main(void) {
 
 	add_irq_handle(0, timer_event);
 
-	init_FLOAT_vfprintf();
+	//init_FLOAT_vfprintf();
 
 	Log("game start!");
 
